@@ -65,5 +65,162 @@
             <div class="etiqueta-6">$184.000COP</div>
           </div>
         </div>
+        <div class="cuadro">
+          <img class="img" src="img/harry-potter-y-la-orden-del-fenix-5-libro-196.webp">
+          <div class="copia-2">
+            <p class="p">Harry Potter y la Orden del Fenix</p>
+            <p class="div">
+              <span class="span">Autor:</span><span class="etiqueta-5">J.K. Rowling</span>
+            </p>
+            <div class="etiqueta-6">$69.000COP</div>
+          </div>
+        </div>
+        <div class="cuadro">
+          <img class="img" src="img/los-juegos-del-hambre-libro-808.webp">
+          <div class="copia-2">
+            <p class="p">Harry Potter y la Orden del Fenix</p>
+            <p class="div">
+              <span class="span">Autor:</span><span class="etiqueta-5">J.K. Rowling</span>
+            </p>
+            <div class="etiqueta-6">$69.000COP</div>
+          </div>
+        </div>
+        <div class="cuadro">
+          <img class="img" src="img/warhammer40kfintiempos.webp">
+          <div class="copia-2">
+            <p class="p">Harry Potter y la Orden del Fenix</p>
+            <p class="div">
+              <span class="span">Autor:</span><span class="etiqueta-5">J.K. Rowling</span>
+            </p>
+            <div class="etiqueta-6">$69.000COP</div>
+          </div>
+        </div>
+        <div class="cuadro">
+          <img class="img" src="img/warhammer40kcaidos.webp">
+          <div class="copia-2">
+            <p class="p">Harry Potter y la Orden del Fenix</p>
+            <p class="div">
+              <span class="span">Autor:</span><span class="etiqueta-5">J.K. Rowling</span>
+            </p>
+            <div class="etiqueta-6">$69.000COP</div>
+          </div>
+        </div>
+        <div class="cuadro">
+          <img class="img" src="img/harrypotter.webp">
+          <div class="copia-2">
+            <p class="p">Harry Potter y la Orden del Fenix</p>
+            <p class="div">
+              <span class="span">Autor:</span><span class="etiqueta-5">J.K. Rowling</span>
+            </p>
+            <div class="etiqueta-6">$69.000COP</div>
+          </div>
+        </div>
       </div>
+      <footer class="footer">
+        <div class="title-4">
+          <a href="index.html" target="_blank" rel="noopener noreferrer">
+            <img class="logo" src="img/scdbook amarillo.png" />
+          </a>
+          <div class="button-list">
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              <img class="x-logo" src="img/x icono.webp" />
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              <img class="img-2" src="img/instagram-logo-instagram-icon-transparent-free-png.webp" />
+            </a>
+            <a href="https://www.youtube.com/@SCDBOOks" target="_blank" rel="noopener noreferrer">
+              <div class="img-2"><img class="icon" src="img/descargar.jpg" /></div>
+            </a>
+            
+          </div>
+        </div>
+        <div class="text-link-list">
+          <div class="text-strong-wrapper">
+            <div class="div-wrapper-2"><div class="text-strong-2">Politicas</div></div>
+          </div>
+          <div class="text-link-list-item"><div class="list-item">Politicas de Envio</div></div>
+          <div class="text-link-list-item"><div class="list-item">Politicas de Cambios y Devoluciones</div></div>
+          <div class="text-link-list-item"><div class="list-item">Privacidad y proteccion de Datos</div></div>
+          <div class="text-link-list-item"><div class="list-item">Terminos y servicios</div></div>
+        </div>
+        <div class="text-link-list">
+          <div class="text-strong-wrapper">
+            <div class="div-wrapper-2"><div class="text-strong-2">Librerias</div></div>
+          </div>
+          <a class="text-link-list-item" href="#"><div class="list-item">Antonia Santos: </span>Cll 24a #54-48</div></a>
+          <a class="text-link-list-item" href="#"><div class="list-item">Dirección</div></a>
+          <a class="text-link-list-item" href="#"><div class="text-link-list-item"><div class="list-item">Dirección</div></div></a>
+          <a class="text-link-list-item" href="#"><div class="text-link-list-item"><div class="list-item">Dirección</div></div></a>
+          <a class="text-link-list-item" href="#"><div class="text-link-list-item"><div class="list-item">Dirección</div></div></a>
+          <a class="text-link-list-item" href="#"><div class="text-link-list-item"><div class="list-item">Dirección</div></div></a>
+          <a class="text-link-list-item" href="#"><div class="text-link-list-item"><div class="list-item">FigJam</div></div></a>
+        </div>
+        <div class="text-link-list">
+          <div class="text-strong-wrapper">
+            <div class="div-wrapper-2"><div class="text-strong-2">Resources</div></div>
+          </div>
+          <div class="text-link-list-item"><div class="list-item">Blog</div></div>
+          <div class="text-link-list-item"><div class="list-item">Best practices</div></div>
+          <div class="text-link-list-item"><div class="list-item">Colors</div></div>
+          <div class="text-link-list-item"><div class="list-item">Color wheel</div></div>
+          <div class="text-link-list-item"><div class="list-item">Support</div></div>
+          <div class="text-link-list-item"><div class="list-item">Developers</div></div>
+          <div class="text-link-list-item"><div class="list-item">Resource library</div></div>
+        </div>
+      </footer>
+      <script>
+  const params = new URLSearchParams(window.location.search);
+  const libroId = parseInt(params.get("id"));
+
+  const libro = libros.find(l => l.id === libroId);
+
+  if (libro) {
+    document.querySelector(".image").src = libro.imagen;
+    document.querySelector(".nombre-producto").textContent = libro.titulo;
+    document.querySelector(".subtitulo").textContent = "Autor: " + libro.autor;
+    document.querySelector(".precio").textContent = libro.precio;
+    document.querySelector(".descripcion").innerHTML = libro.descripcion;
+    document.querySelector(".SKU").innerHTML = `
+      SKU: ${libro.sku}<br>
+      Editorial: ${libro.editorial}<br>
+      Numero de Paginas: ${libro.paginas}<br>
+      Categoria: ${libro.categoria}
+    `;
+
+    // Filtrar libros que no son el actual
+    const relacionados = libros.filter(l => l.id !== libroId);
+
+    // Barajar aleatoriamente
+    relacionados.sort(() => Math.random() - 0.5);
+
+    // Tomar los primeros 6 relacionados
+    const seleccionados = relacionados.slice(0, 6);
+
+    // Contenedor de productos relacionados
+    const contenedor = document.querySelector(".cuadro-libro");
+    contenedor.innerHTML = ""; // Limpiar los existentes
+
+    // Crear elementos HTML
+    seleccionados.forEach(libroRelacionado => {
+      const div = document.createElement("div");
+      div.className = "cuadro";
+      div.innerHTML = `
+        <img class="img" src="${libroRelacionado.imagen}">
+        <div class="copia-2">
+          <p class="p">${libroRelacionado.titulo}</p>
+          <p class="div">
+            <span class="span">Autor:</span>
+            <span class="etiqueta-5"> ${libroRelacionado.autor}</span>
+          </p>
+          <div class="etiqueta-6">${libroRelacionado.precio}</div>
+        </div>
+      `;
+      contenedor.appendChild(div);
+    });
+  } else {
+    document.body.innerHTML = "<p>Libro no encontrado</p>";
+  }
+</script>
+
   </body>
+</html>

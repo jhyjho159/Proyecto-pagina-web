@@ -88,17 +88,6 @@
   font-style: var(--single-line-body-base-font-style);
 }
 
-
-/*.examples-shop .header-auth {
-  display: flex;
-  align-items: center;
-  gap: clamp(5px, 1.5vw, 10px);
-  flex-wrap: nowrap; 
-  justify-content: flex-end; 
-  width: 300px; 
-  position: relative;
-}*/
-
 .button {
   display: flex;
   position: relative;
@@ -505,7 +494,8 @@
 .examples-shop .product-info-card {
   display: flex;
   flex-direction: column;
-  width: 261.33px;
+  width: 261px;
+  height: 385px;
   align-items: flex-start;
   gap: var(--size-space-400);
   padding: var(--size-space-400);
@@ -514,6 +504,7 @@
   border-radius: var(--size-radius-200);
   border: 1px solid;
   border-color: var(--color-border-default-default);
+  box-sizing: border-box;
 }
 
 .examples-shop .product-info-card:hover {
@@ -597,9 +588,9 @@
   align-self: stretch;
   width: 100%;
   height: 247px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-color: white;
+  background-size: contain; 
+  background-repeat: no-repeat; 
+  background-color: white; 
   background-position: center; 
 }
 
@@ -624,7 +615,7 @@
   align-self: stretch;
   width: 100%;
   height: 247px;
-  background-size: contain;
+  background-size: contain; 
   background-repeat: no-repeat; 
   background-color: white; 
   background-position: center; 
@@ -761,24 +752,22 @@
   position: relative;
   width: 23.98px;
   height: 24px;
-  opacity: 1;
-  transition: opacity 0.3 ease;
 }
 
 .examples-shop .x-logo:hover{
-  opacity: 0.7;
+  transition: 0.5s;
+  transform: translateY(-5px);
 }
 
 .examples-shop .img-2 {
   position: relative;
   width: 34px;
   height: 34px;
-  opacity: 1;
-  transition: opacity 0.3 ease;
 }
 
 .examples-shop .img-2:hover {
-  opacity: 0.7;
+  transition: 0.5s;
+  transform: translateY(-5px);
 }
 
 .examples-shop .icon {
@@ -1009,140 +998,10 @@ text-decoration: underline;
   position: relative;
   background-color: #ffffff;
 }
-/*
-.product-detail-page .header {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 1520px;
-  height: 104px;
-  background-color: var(--color-background-default-default);
-  border-top-style: none;
-  border-right-style: none;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-left-style: none;
-  border-color: var(--color-border-default-default);
-}*/
-/*
-.product-detail-page .block {
-  position: absolute;
-  width: 40px;
-  height: 34px;
-  top: 34px;
-  left: 32px;
-}/*
-/*
-.product-detail-page .boton-navegacion {
-  justify-content: flex-end;
-  display: inline-flex;
-  align-items: center;
-  gap: var(--size-space-200);
-  padding: var(--size-space-200);
-  position: relative;
-  flex: 0 0 auto;
-  border-radius: var(--size-radius-200);
-  transition: all 0.3s ease;
-  border: 1px solid transparent;
-  border-radius: 0.1;
-}*/
-/*
-.product-detail-page .boton-navegacion:hover {
-  text-decoration: underline;
-  cursor: pointer; 
-  color: #04090f; 
-  border-color: rgba(4, 9, 15, 0.2); 
-  box-shadow: 0 0 0 1px rgba(4, 9, 15, 0.1);
-}*/
-/*
-.product-detail-page .etiqueta {
-  position: relative;
-  width: fit-content;
-  margin-top: -1.00px;
-  font-family: var(--single-line-body-base-font-family);
-  font-weight: var(--single-line-body-base-font-weight);
-  color: var(--color-text-default-default);
-  font-size: var(--single-line-body-base-font-size);
-  letter-spacing: var(--single-line-body-base-letter-spacing);
-  line-height: var(--single-line-body-base-line-height);
-  white-space: nowrap;
-  font-style: var(--single-line-body-base-font-style);
-}*/
-/*
-.product-detail-page .block {
-  position: absolute;
-  width: 150px;
-  height: 45px;
-  top: 34px;
-  left: 32px;
-}*/
-
-/*.product-detail-page .navegacion-lista{
-  display: flex;
-  flex-wrap: wrap;
-  width: 700px;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  left: 187px;
-  padding: 10px;
-}*/
-
-/*@media (max-width: 768px) {
-  .product-detail-page .navegacion-lista {
-    display: none;
-  }
-
-  .menu-icon {
-    display: block;
-    cursor: pointer;
-    font-size: 24px;
-  }
-}
-*/
-/*
-.product-detail-page .header-auth {
-  display: flex;
-  align-items: center;
-  gap: clamp(5px, 1.5vw, 10px);
-  flex-wrap: nowrap; 
-  justify-content: flex-end; 
-  width: 300px; 
-  position: relative;
-}*//*
-.product-detail-page .boton-1 {
-  all: unset;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 8px clamp(12px, 3vw, 16px); 
-  border-radius: var(--size-radius-200);
-  max-width: 200px;
-  white-space: nowrap;
-  flex-shrink: 0;
-  font-size: clamp(14px, 2vw, 16px);
-  box-sizing: border-box;
-}*/
-/*
-.product-detail-page .boton-2 {
-  all: unset;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 8px clamp(12px, 3vw, 16px); 
-  border-radius: var(--size-radius-200);
-  max-width: 200px;
-  white-space: nowrap;
-  flex-shrink: 0;
-  font-size: clamp(14px, 2vw, 16px); 
-  box-sizing: border-box;
-}*/
 
 .product-detail-page .image {
   position: relative;
+  padding-top: 1%;
   width: 400px;
   height: 639px;
   object-fit: cover;
@@ -1151,6 +1010,7 @@ text-decoration: underline;
 .product-detail-page .copy {
   width: 543px;
   gap: var(--variable-collection-spacing-s);
+  padding-top: 1%;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -1249,13 +1109,15 @@ text-decoration: underline;
 
 .product-detail-page .etiqueta-4 {
   position: relative;
-  width: 625px;
+  align-items: left;
+  width: 100%;
   font-family: "Inter-SemiBold", Helvetica;
   font-weight: 600;
   color: #000000;
   font-size: 32px;
   letter-spacing: 0;
   line-height: 48px;
+  padding-left: 10%;
 }
 
 .product-detail-page .cuadro-libro {
@@ -1267,4 +1129,211 @@ text-decoration: underline;
   position: relative;
 }
 
+.product-detail-page .cuadro {
+  position: relative;
+  width: 404px;
+  height: 366px;
+}
+
+.product-detail-page .img{
+  position: absolute;
+  width: 158px;
+  height: 210px;
+  top: 0;
+  left: 132px;
+  object-fit: contain;
+}
+
+.product-detail-page .copia-2{
+  width: 404px;
+  gap: 4px;
+  position: absolute;
+  top: 236px;
+  left: 9px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.product-detail-page .p {
+  position: relative;
+  align-self: stretch;
+  margin-top: -1.00px;
+  font-family:'Arial Narrow Bold', sans-serif;
+  font-weight: 500;
+  color: #000;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 36px;
+}
+
+.product-detail-page .span {
+  font-weight: 600;
+  color: #000;
+}
+
+.product-detail-page .etiqueta-5 {
+  font-family: var(--body-base-font-family);
+  font-weight: var(--body-base-font-weight);
+  color: #828282;
+  font-style: var(--body-base-font-style);
+  letter-spacing: var(--body-base-letter-spacing);
+  line-height: var(--body-base-line-height);
+  font-size: var(--body-strong-font-size);
+}
+
+.product-detail-page .etiqueta-6 {
+  position: relative;
+  align-self: stretch;
+  font-family: var(--body-base-font-family);
+  font-weight: var(--body-base-font-weight);
+  color: #000;
+  font-size: var(--body-base-font-size);
+  letter-spacing: var(--body-base-letter-spacing);
+  line-height: var(--body-base-line-height);
+  font-style: var(--body-base-font-style);
+}
+
+.product-detail-page .footer {
+  display: flex;
+  flex-wrap: wrap;
+  height: 371px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: var(--size-space-400);
+  padding: var(--size-space-800) var(--size-space-800) var(--size-space-4000)
+    var(--size-space-800);
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  background-color: var(--color-background-default-default);
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-right-style: none;
+  border-bottom-style: none;
+  border-left-style: none;
+  border-color: var(--color-border-default-default);
+}
+
+.product-detail-page .title-4 {
+  display: flex;
+  flex-direction: column;
+  width: 262px;
+  align-items: flex-start;
+  gap: var(--size-space-600);
+  position: relative;
+  margin-left: 210px; 
+  margin-right: auto; 
+}
+
+.product-detail-page .button-list {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--size-space-400);
+  position: relative;
+  margin: 0 auto;
+  right: 17%; 
+}
+
+.product-detail-page .x-logo {
+  position: relative;
+  width: 23.98px;
+  height: 24px;
+}
+
+.product-detail-page .x-logo:hover{
+  transition: 0.5s;
+  transform: translateY(-5px);
+}
+
+.product-detail-page .img-2 {
+  position: relative;
+  width: 34px;
+  height: 34px;
+}
+
+.product-detail-page .img-2:hover {
+  transition: 0.5s;
+  transform: translateY(-5px);
+}
+
+.product-detail-page .icon {
+  position: absolute;
+  width: 24px;
+  height: 20px;
+  bottom: 7px;
+  left: 0;
+}
+
+
+
+.product-detail-page .text-link-list {
+  display: flex;
+  flex-direction: column;
+  width: 262px;
+  align-items: flex-start;
+  gap: var(--size-space-300);
+  position: relative;
+  margin-bottom: -97.00px;
+}
+
+.product-detail-page .text-strong-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 0px 0px var(--size-space-400) 0px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.product-detail-page .text-link-list-item {
+  position: relative;
+  width: 89px;
+  height: 22px;
+  text-decoration: none;
+  color: black;
+}
+
+.product-detail-page .list-item:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #04090f;
+}
+
+
+.product-detail-page .list-item {
+  position: absolute;
+  height: 22px;
+  top: -1px;
+  left: 0;
+  font-family: var(--body-base-font-family);
+  font-weight: var(--body-base-font-weight);
+  color: var(--color-text-default-default);
+  font-size: var(--body-base-font-size);
+  letter-spacing: var(--body-base-letter-spacing);
+  line-height: var(--body-base-line-height);
+  white-space: nowrap;
+  font-style: var(--body-base-font-style);
+  color: #555;          
+  font-size: 14px;  
+}
+
+
+.product-detail-page .logo {
+  background-image: url("img/scdbook amarillo.png");
+  position: relative;
+  width: 160px;
+  height: 120px;
+  object-fit: cover;
+  opacity: 1;
+  border-radius: 2%;
+}
+
+.product-detail-page .logo:hover {
+  transition: 0.5s;
+  transform: scale(1.03);
+}
 
