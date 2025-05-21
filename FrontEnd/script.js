@@ -6,53 +6,129 @@ document.querySelectorAll('.tag-toggle input[type="checkbox"]').forEach(checkbox
 
   // Código para manejar el modal de inicio de sesión
 document.addEventListener('DOMContentLoaded', function() {
-  // Obtener elementos del DOM
-  const botonAbrirLogin = document.getElementById('abrir-login');
-  const modal = document.getElementById('modal-login');
-  const botonCerrarLogin = document.getElementById('cerrar-login');
-  
-  // Función para abrir el modal
-  function abrirModal() {
-    modal.style.display = 'flex';
-  }
-  
-  // Función para cerrar el modal
-  function cerrarModal() {
-    modal.style.display = 'none';
-  }
-  
-  // Event listeners
-  if (botonAbrirLogin) {
-    botonAbrirLogin.addEventListener('click', abrirModal);
-  }
-  
-  if (botonCerrarLogin) {
-    botonCerrarLogin.addEventListener('click', cerrarModal);
-  }
-  
-  // Cerrar el modal si se hace clic fuera del contenido
-  window.addEventListener('click', function(event) {
-    if (event.target === modal) {
-      cerrarModal();
-    }
-  });
-  
-  // Evitar que el formulario recargue la página al enviar
-  const formularioLogin = document.querySelector('.formulario-login');
-  if (formularioLogin) {
-    formularioLogin.addEventListener('submit', function(event) {
-      event.preventDefault();
-      // Aquí puedes agregar la lógica para procesar el inicio de sesión
-      console.log('Iniciando sesión con:', {
-        email: document.getElementById('email').value,
-        password: document.getElementById('password').value
-      });
-      // Simular un inicio de sesión exitoso
-      alert('Inicio de sesión exitoso');
-      cerrarModal();
+        // Obtener elementos del DOM
+        const botonAbrirLogin = document.getElementById('abrir-login');
+        const modalLogin = document.getElementById('modal-login');
+        const modalRegistro = document.getElementById('modal-registro');
+        const botonCerrarLogin = document.getElementById('cerrar-login');
+        const botonCerrarRegistro = document.getElementById('cerrar-registro');
+        const enlaceRegistro = document.querySelector('.enlace-registro');
+        const enlaceLogin = document.querySelector('.enlace-login');
+        
+        // Función para abrir el modal de login
+        function abrirModalLogin() {
+            modalLogin.style.display = 'flex';
+            modalRegistro.style.display = 'none';
+        }
+        
+        // Función para abrir el modal de registro
+        function abrirModalRegistro() {
+            modalRegistro.style.display = 'flex';
+            modalLogin.style.display = 'none';
+        }
+        
+        // Función para cerrar todos los modales
+        function cerrarModales() {
+            modalLogin.style.display = 'none';
+            modalRegistro.style.display = 'none';
+        }
+        
+        // Event listeners
+        if (botonAbrirLogin) {
+            botonAbrirLogin.addEventListener('click', abrirModalLogin);
+        }
+        
+        if (botonCerrarLogin) {
+            botonCerrarLogin.addEventListener('click', cerrarModales);
+        }
+        
+        if (botonCerrarRegistro) {
+            botonCerrarRegistro.addEventListener('click', cerrarModales);
+        }
+        
+        if (enlaceRegistro) {
+            enlaceRegistro.addEventListener('click', abrirModalRegistro);
+        }
+        
+        if (enlaceLogin) {
+            enlaceLogin.addEventListener('click', abrirModalLogin);
+        }
+        
+        // Cerrar los modales si se hace clic fuera del contenido
+        window.addEventListener('click', function(event) {
+            if (event.target === modalLogin || event.target === modalRegistro) {
+                cerrarModales();
+            }
+        });
+        
+        // Evitar que el formulario de login recargue la página al enviar
+        const formularioLogin = document.getElementById('form-login');
+        if (formularioLogin) {
+            formularioLogin.addEventListener('submit', function(event) {
+                event.preventDefault();
+                // Aquí puedes agregar la lógica para procesar el inicio de sesión
+                console.log('Iniciando sesión con:', {
+                    email: document.getElementById('email').value,
+                    password: document.getElementById('password').value
+                });
+                // Simular un inicio de sesión exitoso
+                alert('Inicio de sesión exitoso');
+                cerrarModales();
+            });
+        }
+        
+        // Evitar que el formulario de registro recargue la página al enviar
+        const formularioRegistro = document.getElementById('form-registro');
+        if (formularioRegistro) {
+            formularioRegistro.addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                // Validar que las contraseñas coincidan
+                const password = document.getElementById('password-registro').value;
+                const confirmarPassword = document.getElementById('confirmar-password').value;
+                
+                if (password !== confirmarPassword) {
+                    alert('Las contraseñas no coinciden');
+                    return;
+                }
+                
+                // Aquí puedes agregar la lógica para procesar el registro
+                console.log('Registrando usuario con:', {
+                    nombre: document.getElementById('nombre').value,
+                    email: document.getElementById('email-registro').value,
+                    password: password
+                });
+                
+                // Simular un registro exitoso
+                alert('Registro exitoso');
+                cerrarModales();
+            });
+        }
+        
+        // Event listener para el enlace de recuperar contraseña
+        const recuperarPassword = document.querySelector('.recuperar-password');
+        if (recuperarPassword) {
+            recuperarPassword.addEventListener('click', function() {
+                alert('Redirigiendo a recuperación de contraseña...');
+                // Aquí puedes redirigir a la página de recuperación de contraseña
+            });
+        }
+        
+        // Event listeners para los botones sociales
+        const botonesSociales = document.querySelectorAll('.boton-social');
+        botonesSociales.forEach(function(boton, index) {
+            boton.addEventListener('click', function() {
+                if (modalLogin.style.display === 'flex') {
+                    alert('Iniciando sesión con Google...');
+                } else {
+                    alert('Registrándose con Google...');
+                }
+                // Aquí puedes implementar la autenticación con Google
+            });
+        });
     });
-  }
-});
+
+    
 
 const libros = [
   {
@@ -176,4 +252,267 @@ De: Penguin RandomHouse`,
     categoria: "Juvenil"
   }
 ];
+/// Carrito de compras
+let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
+// Función para actualizar el contador
+function actualizarCarrito() {
+    const contador = document.querySelector('.carrito-contador');
+    const contadorSidebar = document.getElementById('contador-sidebar');
+    const totalItems = carrito.reduce((total, item) => total + item.cantidad, 0);
+    
+    if (contador) {
+        contador.textContent = totalItems;
+        contador.style.display = totalItems > 0 ? 'flex' : 'none';
+    }
+    
+    if (contadorSidebar) {
+        contadorSidebar.textContent = `(${totalItems})`;
+    }
+    
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+}
+
+// Función para mostrar el carrito
+function mostrarCarrito() {
+    const lista = document.getElementById('lista-carrito');
+    const totalElement = document.getElementById('total-carrito');
+    const carritoVacio = document.getElementById('carrito-vacio');
+    
+    if (!lista || !totalElement || !carritoVacio) return;
+    
+    lista.innerHTML = '';
+    let total = 0;
+    
+    if (carrito.length === 0) {
+        carritoVacio.style.display = 'block';
+        lista.style.display = 'none';
+    } else {
+        carritoVacio.style.display = 'none';
+        lista.style.display = 'block';
+        
+        carrito.forEach((producto, index) => {
+            const subtotal = producto.precio * producto.cantidad;
+            total += subtotal;
+            
+            const item = document.createElement('li');
+            item.innerHTML = `
+                <div class="item-info">
+                    <div class="item-titulo">${producto.nombre || `Libro ID: ${producto.id}`}</div>
+                    <div class="item-precio">$${(producto.precio / 1).toLocaleString('es-CO')} COP c/u</div>
+                </div>
+                <div class="item-controles">
+                    <button class="disminuir-item" data-index="${index}">-</button>
+                    <span class="item-cantidad">${producto.cantidad}</span>
+                    <button class="aumentar-item" data-index="${index}">+</button>
+                </div>
+                <button class="eliminar-item" data-index="${index}">×</button>
+            `;
+            lista.appendChild(item);
+        });
+    }
+    
+    totalElement.textContent = `Total: $${(total / 1).toLocaleString('es-CO')} COP`;
+}
+
+// Función para abrir/cerrar el carrito
+function toggleCarrito() {
+    const sidebar = document.getElementById('sidebar-carrito');
+    const overlay = document.querySelector('.overlay-carrito');
+    
+    if (!sidebar || !overlay) return;
+    
+    if (sidebar.classList.contains('abierto')) {
+        sidebar.classList.remove('abierto');
+        overlay.style.display = 'none';
+    } else {
+        sidebar.classList.add('abierto');
+        overlay.style.display = 'block';
+        mostrarCarrito();
+    }
+}
+
+// Inicialización al cargar la página
+document.addEventListener('DOMContentLoaded', () => {
+    actualizarCarrito();
+    
+    // Delegación de eventos
+    document.addEventListener('click', function(e) {
+        // Añadir al carrito (solo funciona en página de libro)
+        if (e.target.closest('.boton-añadir-carrito')) {
+            const boton = e.target.closest('.boton-añadir-carrito');
+            e.preventDefault();
+            
+            const producto = {
+                id: boton.dataset.id,
+                nombre: boton.dataset.nombre,
+                precio: parseInt(boton.dataset.precio),
+                cantidad: 1
+            };
+            
+            const existente = carrito.find(item => item.id === producto.id);
+            if (existente) {
+                existente.cantidad++;
+            } else {
+                carrito.push(producto);
+            }
+            
+            actualizarCarrito();
+            mostrarCarrito();
+            
+            // Feedback visual
+            const etiqueta = boton.querySelector('.etiqueta-3');
+            if (etiqueta) {
+                const originalText = etiqueta.textContent;
+                etiqueta.textContent = '✓ Añadido';
+                boton.style.backgroundColor = '#f3b711';
+                
+                setTimeout(() => {
+                    etiqueta.textContent = originalText;
+                    boton.style.backgroundColor = '';
+                }, 2000);
+            }
+        }
+        
+        // Abrir/cerrar carrito
+        if (e.target.closest('.carrito-container') || 
+            e.target.classList.contains('cerrar-sidebar') || 
+            e.target.classList.contains('overlay-carrito')) {
+            e.preventDefault();
+            toggleCarrito();
+        }
+        
+        // Eliminar item
+        if (e.target.classList.contains('eliminar-item')) {
+            const index = e.target.dataset.index;
+            carrito.splice(index, 1);
+            actualizarCarrito();
+            mostrarCarrito();
+        }
+        
+        // Aumentar cantidad
+        if (e.target.classList.contains('aumentar-item')) {
+            const index = e.target.dataset.index;
+            carrito[index].cantidad++;
+            actualizarCarrito();
+            mostrarCarrito();
+        }
+        
+        // Disminuir cantidad
+        if (e.target.classList.contains('disminuir-item')) {
+            const index = e.target.dataset.index;
+            if (carrito[index].cantidad > 1) {
+                carrito[index].cantidad--;
+            } else {
+                carrito.splice(index, 1);
+            }
+            actualizarCarrito();
+            mostrarCarrito();
+        }
+        
+        // Vaciar carrito
+        if (e.target.id === 'vaciar-carrito') {
+            carrito = [];
+            actualizarCarrito();
+            mostrarCarrito();
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const buscador = document.getElementById('buscador-libros');
+  const sugerenciasBox = document.getElementById('sugerencias-box');
+  const contenedorProductos = document.getElementById('contenedor-productos');
+
+  // Función para buscar coincidencia exacta
+  function buscarCoincidenciaExacta(termino) {
+    const terminoLower = termino.toLowerCase().trim();
+    
+    // Buscar por título exacto (ignorando mayúsculas)
+    const libroPorTitulo = libros.find(libro => 
+      libro.titulo.toLowerCase() === terminoLower
+    );
+    
+    // Buscar por SKU exacto (comparación exacta)
+    const libroPorSKU = libros.find(libro => 
+      libro.sku === termino
+    );
+
+    return libroPorTitulo || libroPorSKU;
+  }
+
+  // Función para mostrar sugerencias
+  function mostrarSugerencias(termino) {
+    sugerenciasBox.innerHTML = '';
+    if (termino.length < 1) {
+      sugerenciasBox.style.display = 'none';
+      return;
+    }
+
+    const terminoLower = termino.toLowerCase();
+    const sugerencias = libros.filter(libro => 
+      libro.titulo.toLowerCase().includes(terminoLower) || 
+      libro.sku.includes(termino)
+    ).slice(0, 5);
+
+    if (sugerencias.length > 0) {
+      sugerencias.forEach(libro => {
+        const item = document.createElement('div');
+        item.style.padding = '10px';
+        item.style.cursor = 'pointer';
+        item.style.borderBottom = '1px solid #eee';
+        item.style.display = 'flex';
+        item.style.justifyContent = 'space-between';
+        
+        item.innerHTML = `
+          <div>
+            <strong>${libro.titulo}</strong>
+            <div style="font-size:12px;color:#666">${libro.autor}</div>
+          </div>
+          <div style="color:#888;font-family:monospace">SKU: ${libro.sku}</div>
+        `;
+
+        item.addEventListener('click', () => {
+          // Redirigir directamente a la página del libro
+          window.location.href = `detalle-libro.html?id=${libro.id}`;
+        });
+
+        sugerenciasBox.appendChild(item);
+      });
+      sugerenciasBox.style.display = 'block';
+    } else {
+      sugerenciasBox.style.display = 'none';
+    }
+  }
+
+  // Evento al presionar Enter
+  buscador.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      const termino = buscador.value.trim();
+      const libroExacto = buscarCoincidenciaExacta(termino);
+      
+      if (libroExacto) {
+        // Redirigir si hay coincidencia exacta
+        window.location.href = `detalle-libro.html?id=${libroExacto.id}`;
+      } else {
+        // Mostrar sugerencias si no hay coincidencia exacta
+        mostrarSugerencias(termino);
+      }
+    }
+  });
+
+  // Mostrar sugerencias al escribir
+  buscador.addEventListener('input', (e) => {
+    mostrarSugerencias(e.target.value);
+  });
+
+  // Ocultar sugerencias al hacer clic fuera
+  document.addEventListener('click', (e) => {
+    if (!buscador.contains(e.target) && !sugerenciasBox.contains(e.target)) {
+      sugerenciasBox.style.display = 'none';
+    }
+  });
+
+  // Carga inicial mostrando todos los libros (opcional)
+  // filtrarLibros(''); // Comentado ya que no necesitamos mostrar todos los libros al inicio
+});
