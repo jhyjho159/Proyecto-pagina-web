@@ -72,20 +72,31 @@ flowchart LR
 
 ```
 
+
+
+## 🏗️ Arquitectura Híbrida (Cliente-Servidor + MVC)
+
+```mermaid
+flowchart TD
+    subgraph Cliente[FrontEnd]
+        A[Vista\nHTML/CSS] -->|Eventos| B[Controlador\nJavaScript]
+        B -->|Actualiza| A
+        B -->|Consulta| C[(Modelo\nLocalStorage/MariaDB)]
+    end
+    subgraph Servidor[BackEnd]
+        C -->|HTTP/JSON| D[MariaDB]
+    end
+    Usuario -->|Interactúa| A
+    D -->|Respuesta| B
+```
 - 🎯 **MVC (Modelo-Vista-Controlador)**
   - Modelo: `libreriadb.sql` (Estructuras SQL)
   - Vista: `*.html` + `*.css` (Renderizado)
   - Controlador: `*.js` (Gestión de eventos)
-```mermaid
-flowchart LR
-    U[Usuario] --> V[Vista]
-    V --> C[Controlador]
-    C --> M[Modelo]
-    M --> V
-```
+    
 - 🔗 **Singleton** 
   - Conexión única a la base de datos
-  - Ejemplo: `dbConnection.js` (Si usan Node.js)
+  - Ejemplo: `dbConnection.js` (Si se usa Node.js)
 
 - 🔄 **Observer**
   - Notificaciones en tiempo real (Ej: actualización de carrito)
