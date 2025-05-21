@@ -93,10 +93,4 @@ flowchart TD
   - Modelo: `libreriadb.sql` (Estructuras SQL)
   - Vista: `*.html` + `*.css` (Renderizado)
   - Controlador: `*.js` (Gestión de eventos)
-    
-- 🔗 **Singleton** 
-  - Conexión única a la base de datos
-  - Ejemplo: `dbConnection.js` (Si se usa Node.js)
 
-- 🔄 **Observer**
-  - Notificaciones en tiempo real (Ej: actualización de carrito)
