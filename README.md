@@ -94,3 +94,6 @@ flowchart TD
   - Vista: `*.html` + `*.css` (Renderizado)
   - Controlador: `*.js` (Gestión de eventos)
 
+---
+
+![Revisado por Fanny Casadiego Chiquillo](https://img.shields.io/badge/Revisado_por-Fanny_Casadiego_Chiquillo-2d3748?style=flat&logo=review&logoColor=white)
