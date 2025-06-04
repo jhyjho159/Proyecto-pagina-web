@@ -24,6 +24,8 @@
 
 ---
 ![GitHub Activity](https://github-readme-stats.vercel.app/api?username=jhyjho159&show_icons=true)
+![GitHub Activity](https://github-readme-stats.vercel.app/api?username=charliehh&show_icons=true)
+![GitHub Activity](https://github-readme-stats.vercel.app/api?username=Davidrojas444&show_icons=true)
 
 ---
 # 📂 Estructura del Proyecto
