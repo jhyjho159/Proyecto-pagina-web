@@ -146,4 +146,15 @@ app.use(rateLimit({ // Limitación de peticiones
 app.use(cors()); // Configuración CORS
 app.use(express.json({ limit: '10kb' })); // Parseo de JSON
 ```
-
+---
+# Arquitectura del Sistemas
+```mermaid
+graph TD
+    A[Frontend] -->|HTTP Requests| B[Rutas]
+    B --> C[Controlador]
+    C --> D[Modelo]
+    D --> E[(MariaDB Database)]
+    B --> F[Middlewares]
+    F --> G[Seguridad]
+    F --> H[Rate Limiting]
+```
